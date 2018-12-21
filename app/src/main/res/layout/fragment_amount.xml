@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:id="@+id/fragment_amount"
+            android:orientation="vertical">
+
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/contraitView"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:scaleType="fitXY"
+                        android:background="@drawable/ic_card"
+                        android:layout_gravity="center"
+                        android:id="@+id/appCompatImageView"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:text="@string/guide_textView"
+                        android:id="@+id/appCompatTextView"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="40dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="40dp"
+                        app:layout_constraintHorizontal_bias="0.51" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/editText_amount"
+                        android:textSize="20dp"
+                        android:id="@+id/textView2"
+                        android:layout_alignParentStart="true"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/editText_amount"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+                <com.jappy.mercadopago.utils.CurrencyEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textView2"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:id="@+id/editText_amount"
+                        android:layout_alignParentStart="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="38dp"
+                        app:layout_constraintBottom_toTopOf="@+id/button_paid"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:textColor="#FFFFFF"
+                        android:imeOptions="actionDone"
+                        android:layout_alignParentBottom="true"
+                        android:id="@+id/button_paid"
+                        android:text="@string/editText_paid"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

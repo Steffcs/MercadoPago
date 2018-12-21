@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pago_navigation"
+        app:startDestination="@id/amountFragment">
+
+
+    <fragment
+            android:id="@+id/amountFragment"
+            android:name="com.jappy.mercadopago.presetation.amount.AmountFragment"
+            android:label="amountFragment"
+            tools:layout="@layout/fragment_amount">
+
+
+        <argument
+                android:name="amount"
+                android:defaultValue="0"
+                app:argType="string"/>
+        <argument
+                android:name="recommended_message"
+                android:defaultValue="recommended_message" />
+
+        <action
+                android:id="@+id/amountAction"
+                app:destination="@id/cardListFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/tradeAction"
+                app:destination="@id/tradeFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpToInclusive="true"/>
+    </fragment>
+
+
+    <fragment
+            android:id="@+id/cardListFragment"
+            android:name="com.jappy.mercadopago.presetation.card.CardListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            android:label="CardListFragment">
+
+        <argument
+                android:name="amount"
+                android:defaultValue="visa" />
+
+
+        <action
+                android:id="@+id/cardListaction"
+                app:destination="@id/bankFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+
+
+    </fragment>
+    <fragment
+            android:id="@+id/bankFragment"
+            android:name="com.jappy.mercadopago.presetation.bank.BankListsFragment"
+            android:label="fragment_bank"
+            tools:layout="@layout/fragment_bank">
+
+        <argument
+                android:name="payment"
+                android:defaultValue="visa" />
+
+        <argument
+                android:name="amount"
+                android:defaultValue="0"
+                app:argType="string"/>
+
+        <argument
+                android:name="issuer"
+                android:defaultValue="visa" />
+        <action
+                android:id="@+id/bankListAction"
+                app:destination="@id/feedFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+            android:id="@+id/feedFragment"
+            android:name="com.jappy.mercadopago.presetation.fee.FeeFragment"
+            android:label="fragment_feed"
+            tools:layout="@layout/fragment_feed">
+
+        <argument
+                android:name="payment"
+                android:defaultValue="visa" />
+
+        <argument
+                android:name="amount"
+                android:defaultValue="visa" />
+
+        <argument
+                android:name="issuer"
+                android:defaultValue="visa" />
+
+        <argument
+                android:name="recommended_message"
+                android:defaultValue="recommended_message" />
+        <action
+                android:id="@+id/feeListAction"
+                app:destination="@id/amountFragment"
+                app:popUpTo="@+id/amountFragment"
+                app:popUpToInclusive="true"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+            android:id="@+id/tradeFragment"
+            android:name="com.jappy.mercadopago.presetation.trade.TradeFragment"
+            android:label="TradeFragment" />
+
+</navigation>

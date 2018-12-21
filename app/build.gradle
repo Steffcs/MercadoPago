@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
+
+def MERCADOPAGO_APIKEY = "444a9ef5-8a6b-429f-abdf-587639155d88"
+def MERCADOPAGO_BASE_URL_DEV = "https://api.mercadopago.com/v1/"
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.jappy.mercadopago"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'MERCADOPAGO_APIKEY', '\"' + MERCADOPAGO_APIKEY + '\"'
+            buildConfigField 'String', 'MERCADOPAGO_BASE_URL_DEV', '\"' + MERCADOPAGO_BASE_URL_DEV + '\"'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'MERCADOPAGO_APIKEY', '\"' + MERCADOPAGO_APIKEY + '\"'
+            buildConfigField 'String', 'MERCADOPAGO_BASE_URL_DEV', '\"' + MERCADOPAGO_BASE_URL_DEV + '\"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support
+    implementation "androidx.legacy:legacy-support-v4:$legacyLibVersion"
+    implementation "androidx.appcompat:appcompat:$appcompatLibVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerviewLibVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutLibVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleLibVersion"
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //UI
+    implementation "com.airbnb.android:lottie:$lottieLibVersion"
+
+    // Network
+    implementation "com.squareup.retrofit2:retrofit:${retrofitLibVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitLibVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitLibVersion}"
+    implementation "com.squareup.retrofit2:converter-scalars:${retrofitLibVersion}"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxjavaLibVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaLibVersion"
+
+    // Navigation fragment
+    implementation "android.arch.navigation:navigation-fragment:$navigationLibVersion"
+    implementation "android.arch.navigation:navigation-ui:$navigationLibVersion"
+
+    // Image
+    implementation "com.github.bumptech.glide:glide:$glideLibVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideLibVersion"
+
+    // DI
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerLibVersion"
+    api "com.google.dagger:dagger-android-support:$daggerLibVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerLibVersion"
+
+    // Architecture Component - Room
+    implementation "android.arch.persistence.room:runtime:$roomLibVersion"
+    implementation "android.arch.persistence.room:rxjava2:$roomLibVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$roomLibVersion"
+
+    //Test
+
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoLibVersion"
+    androidTestImplementation 'androidx.test:core:1.1.0'
+    androidTestImplementation "androidx.test:runner:$testLibVersion"
+    androidTestImplementation "androidx.test:rules:$testLibVersion"
+    androidTestImplementation "com.google.truth:truth:$truthLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoLibVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$espressoLibVersion"
+    testImplementation "junit:junit:$junitLibVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoLibVersion"
+
+}

@@ -1,0 +1,70 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha08"
+
+
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+
+    minSdkVersion = 19
+    compileSdkVersion = 28
+    targetSdkVersion = 28
+
+    //UI
+    supportLibVersion = '28.0.0'
+    constraintLibVersion = '1.1.3'
+
+    //Test
+    junitLibVersion = '4.12'
+    testRunnerLibVersion = '1.0.2'
+    mockitoLibVersion = '2.23.4'
+
+    //Network
+    retrofitLibVersion = "2.4.0"
+    rxjavaLibVersion = "2.1.0"
+    gsonLibVersion = '2.7'
+
+
+    daggerLibVersion = "2.19"
+    lottieLibVersion = "2.8.0"
+
+    navigationLibVersion = "1.0.0-alpha08"
+    legacyLibVersion = "1.0.0"
+    appcompatLibVersion = "1.1.0-alpha01"
+    recyclerviewLibVersion = "1.1.0-alpha01"
+    constraintlayoutLibVersion = "2.0.0-alpha2"
+    lifecycleLibVersion = "2.0.0"
+    espressoLibVersion = "3.1.1"
+    glideLibVersion = "4.8.0"
+    roomLibVersion= "1.1.1"
+    testLibVersion = "1.1.1"
+    truthLibVersion = "0.42"
+
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
